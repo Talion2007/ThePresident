@@ -55,58 +55,58 @@ function App() {
   }
 
   function comprarCruzeiro() {
-    if (reisBrasileiros >= 100 * multiply) {
+    if (reisBrasileiros >= 20 * multiply) {
       setCruzeiro(cruzeiro + 1 * multiply);
-      setReisBrasileiros(reisBrasileiros - 100 * multiply);
+      setReisBrasileiros(reisBrasileiros - 20 * multiply);
     }
   }
 
   function comprarCruzeiroNovo() {
-    if (cruzeiro >= 1000 * multiply) {
+    if (cruzeiro >= 50 * multiply) {
       setCruzeiroNovo(cruzeiroNovo + 1 * multiply);
-      setCruzeiro(cruzeiro - 1000 * multiply);
+      setCruzeiro(cruzeiro - 50 * multiply);
     }
   }
 
   function comprarCruzado() {
-    if (cruzeiroNovo >= 10000 * multiply) {
+    if (cruzeiroNovo >= 100 * multiply) {
       setCruzado(cruzado + 1 * multiply);
-      setCruzeiroNovo(cruzeiroNovo - 10000 * multiply);
+      setCruzeiroNovo(cruzeiroNovo - 100 * multiply);
     }
   }
 
   function comprarCruzadoNovo() {
-    if (cruzado >= 100000 * multiply) {
+    if (cruzado >= 250 * multiply) {
       setCruzadoNovo(cruzadoNovo + 1 * multiply);
-      setCruzado(cruzado - 100000 * multiply);
+      setCruzado(cruzado - 250 * multiply);
     }
   }
 
   function comprarCruzeiroReal() {
-    if (cruzadoNovo >= 1000000 * multiply) {
+    if (cruzadoNovo >= 500 * multiply) {
       setCruzeiroReal(cruzeiroReal + 1 * multiply);
-      setCruzadoNovo(cruzadoNovo - 1000000 * multiply);
+      setCruzadoNovo(cruzadoNovo - 500 * multiply);
     }
   }
 
   function comprarReal() {
-    if (cruzeiroReal >= 10000000 * multiply) {
+    if (cruzeiroReal >= 1000 * multiply) {
       setReal(real + 1 * multiply);
-      setCruzeiroReal(cruzeiroReal - 10000000 * multiply);
+      setCruzeiroReal(cruzeiroReal - 1000 * multiply);
     }
   }
 
   function comprarOuro() {
-    if (real >= 100000000 * multiply) {
+    if (real >= 3000 * multiply) {
       setOuro(ouro + 1 * multiply);
-      setReal(real - 100000000 * multiply);
+      setReal(real - 3000 * multiply);
     }
   }
 
   function comprarJoia() {
-    if (ouro >= 1000000000 * multiply) {
+    if (ouro >= 5000 * multiply) {
       setJoia(joia + 1 * multiply);
-      setOuro(ouro - 1000000000 * multiply);
+      setOuro(ouro - 5000 * multiply);
     }
   }
 
@@ -360,7 +360,7 @@ function App() {
 
         <div>
           <button onClick={comprarCruzeiro}>
-            Comprar Cruzeiros ({100 * multiply}Cr$)
+            Comprar Cruzeiros ({20 * multiply}Cr$)
           </button>
           <button onClick={aumentarPrecoCruzeiro}>
             Investir em Salvador ({Cr$}Cr$){" "}
@@ -369,7 +369,7 @@ function App() {
 
         <div>
           <button onClick={comprarCruzeiroNovo}>
-            Comprar Cruzeiro Novo ({1000 * multiply}Cr$)
+            Comprar Cruzeiro Novo ({50 * multiply}Cr$)
           </button>
           <button onClick={aumentarPrecoCruzeiroNovo}>
             Investir em Belo Horizonte ({NCr$}NCr$){" "}
@@ -378,7 +378,7 @@ function App() {
 
         <div>
           <button onClick={comprarCruzado}>
-            Comprar Cruzado ({10000 * multiply}NCr$)
+            Comprar Cruzado ({100 * multiply}NCr$)
           </button>
           <button onClick={aumentarPrecoCruzado}>
             Investir em Recife ({Cz$}Cz$){" "}
@@ -387,7 +387,7 @@ function App() {
 
         <div>
           <button onClick={comprarCruzadoNovo}>
-            Comprar Cruzado Novo ({100000 * multiply}Cz$)
+            Comprar Cruzado Novo ({250 * multiply}Cz$)
           </button>
           <button onClick={aumentarPrecoCruzadoNovo}>
             Investir em Natal ({NCz$}NCz$){" "}
@@ -396,7 +396,7 @@ function App() {
   
         <div>
         <button onClick={comprarCruzeiroReal}>
-            Comprar Cruzado Real ({1000000 * multiply}NCz$)
+            Comprar Cruzado Real ({500 * multiply}NCz$)
           </button>
           <button onClick={aumentarPrecoCruzeiroReal}>
             Investir em Porto Alegre ({CR$}CR$){" "}
@@ -405,7 +405,7 @@ function App() {
 
         <div>
         <button onClick={comprarReal}>
-            Comprar Real ({10000000 * multiply}CR$)
+            Comprar Real ({1000 * multiply}CR$)
           </button>
           <button onClick={aumentarPrecoReal}>
             Investir em Florianópolis ({R$}R$){" "}
@@ -414,7 +414,7 @@ function App() {
 
         <div>
         <button onClick={comprarOuro}>
-            Comprar Ouro ({100000000 * multiply}R$)
+            Comprar Ouro ({3000 * multiply}R$)
           </button>
           <button onClick={aumentarPrecoOuro}>
             Investir em Rio de Janeiro ({K}K){" "}
@@ -423,7 +423,7 @@ function App() {
 
         <div>
         <button onClick={comprarJoia}>
-            Comprar Joia ({1000000000 * multiply}K)
+            Comprar Joia ({5000 * multiply}K)
           </button>
           <button onClick={aumentarPrecoJoia}>
             Investir em São Paulo ({Ct}Ct){" "}
