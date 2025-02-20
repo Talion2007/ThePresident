@@ -363,7 +363,7 @@ function App() {
             Comprar Cruzeiros ({100 * multiply}Cr$)
           </button>
           <button onClick={aumentarPrecoCruzeiro}>
-            Investir em Salvador ({Cr$}Rs){" "}
+            Investir em Salvador ({Cr$}Cr$){" "}
           </button>
         </div>
 
