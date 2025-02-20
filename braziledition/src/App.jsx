@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 import "./App.css";
 import { useState } from "react";
 import Collor from "./assets/Collor.jpg";
@@ -250,8 +248,73 @@ function App() {
   }
 
   function moneyPunch() {
+    setReis(99999999999);
+    setReisBrasileiros(99999999999);
+    setCruzeiro(99999999999);
+    setCruzeiroNovo(99999999999);
+    setCruzado(99999999999);
+    setCruzadoNovo(99999999999);
+    setCruzeiroReal(99999999999);
+    setReal(99999999999);
+    setOuro(99999999999);
     setJoia(99999999999);
   }
+
+  function salvarProgresso() {
+    const progresso = {
+      voto,
+      reis,
+      reisBrasileiros,
+      cruzeiro,
+      cruzeiroNovo,
+      cruzado,
+      cruzadoNovo,
+      cruzeiroReal,
+      real,
+      ouro,
+      joia,
+      preco,
+      Rs,
+      Cr$,
+      NCr$,
+      Cz$,
+      NCz$,
+      CR$,
+      R$,
+      K,
+      Ct
+    };
+    localStorage.setItem("progressoJogo", JSON.stringify(progresso));
+  }
+  
+  function carregarProgresso() {
+    const progressoSalvo = localStorage.getItem("progressoJogo");
+    if (progressoSalvo) {
+      const progresso = JSON.parse(progressoSalvo);
+      setVoto(progresso.voto);
+      setReis(progresso.reis);
+      setReisBrasileiros(progresso.reisBrasileiros);
+      setCruzeiro(progresso.cruzeiro);
+      setCruzeiroNovo(progresso.cruzeiroNovo);
+      setCruzado(progresso.cruzado);
+      setCruzadoNovo(progresso.cruzadoNovo);
+      setCruzeiroReal(progresso.cruzeiroReal);
+      setReal(progresso.real);
+      setOuro(progresso.ouro);
+      setJoia(progresso.joia);
+      setPreco(progresso.preco);
+      setRs(progresso.Rs);
+      setCr$(progresso.Cr$);
+      setNCr$(progresso.NCr$);
+      setCz$(progresso.Cz$);
+      setNCz$(progresso.NCz$);
+      setCR$(progresso.CR$);
+      setR$(progresso.R$);
+      setK(progresso.K);
+      setCt(progresso.Ct);
+    }
+  }
+  
 
   return (
     <article>
@@ -266,15 +329,17 @@ function App() {
       <img src={Collor} alt="Collor" />
       <h1>{end}</h1>
       <section>
-        <p>
-          Votos: {voto} | Reis: {reis}R | Reis Brasileiros: {reisBrasileiros}Rs
-          | Cruzeiro: {cruzeiro}Cr$ | Cruzeiro Novo: {cruzeiroNovo}NCr$ |
-          Cruzado: {cruzado}Cz${" "}
-        </p>{" "}
-        <p>
-          Cruzado Novo: {cruzadoNovo}NCz$ | Cruzeiro Real: {cruzeiroReal}CR$ |
-          Real: {real}R$ | Ouro: {ouro}K | Joia: {joia}Ct
-        </p>
+        <strong>
+          <p>
+            Votos: {voto} | Reis: {reis}R | Reis Brasileiros: {reisBrasileiros}
+            Rs | Cruzeiro: {cruzeiro}Cr$ | Cruzeiro Novo: {cruzeiroNovo}NCr$ |
+            Cruzado: {cruzado}Cz${" "}
+          </p>{" "}
+          <p>
+            Cruzado Novo: {cruzadoNovo}NCz$ | Cruzeiro Real: {cruzeiroReal}CR$ |
+            Real: {real}R$ | Ouro: {ouro}K | Joia: {joia}Ct
+          </p>
+        </strong>
       </section>
       <section>
         <div>
@@ -310,6 +375,60 @@ function App() {
             Investir em Belo Horizonte ({NCr$}NCr$){" "}
           </button>
         </div>
+
+        <div>
+          <button onClick={comprarCruzado}>
+            Comprar Cruzado ({10000 * multiply}NCr$)
+          </button>
+          <button onClick={aumentarPrecoCruzado}>
+            Investir em Recife ({Cz$}Cz$){" "}
+          </button>
+        </div>
+
+        <div>
+          <button onClick={comprarCruzadoNovo}>
+            Comprar Cruzado Novo ({100000 * multiply}Cz$)
+          </button>
+          <button onClick={aumentarPrecoCruzadoNovo}>
+            Investir em Natal ({NCz$}NCz$){" "}
+          </button>
+        </div>
+  
+        <div>
+        <button onClick={comprarCruzeiroReal}>
+            Comprar Cruzado Real ({1000000 * multiply}NCz$)
+          </button>
+          <button onClick={aumentarPrecoCruzeiroReal}>
+            Investir em Porto Alegre ({CR$}CR$){" "}
+          </button>
+        </div>
+
+        <div>
+        <button onClick={comprarReal}>
+            Comprar Real ({10000000 * multiply}CR$)
+          </button>
+          <button onClick={aumentarPrecoReal}>
+            Investir em Florianópolis ({R$}R$){" "}
+          </button>
+        </div>
+
+        <div>
+        <button onClick={comprarOuro}>
+            Comprar Ouro ({100000000 * multiply}R$)
+          </button>
+          <button onClick={aumentarPrecoOuro}>
+            Investir em Rio de Janeiro ({K}K){" "}
+          </button>
+        </div>
+
+        <div>
+        <button onClick={comprarJoia}>
+            Comprar Joia ({1000000000 * multiply}K)
+          </button>
+          <button onClick={aumentarPrecoJoia}>
+            Investir em São Paulo ({Ct}Ct){" "}
+          </button>
+        </div>
       </section>
       <article>
         <div>
@@ -317,8 +436,11 @@ function App() {
             multiply={multiply}
             multiplyPurchase={multiplyPurchase}
           />
-           <ComprarBrasilia
-           comprarBraslia={comprarBraslia}/>
+          <ComprarBrasilia comprarBraslia={comprarBraslia} />
+        </div>
+        <div>
+          <button onClick={salvarProgresso}>Salvar Progresso</button>
+          <button onClick={carregarProgresso}>Carregar Progresso</button>
         </div>
       </article>
     </article>
