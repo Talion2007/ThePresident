@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+import Ramon from "./assets/Ramon.jpg";
 import Collor from "./assets/Collor.jpg";
 import Multiplicador from "./components/Multiply";
 import ComprarBrasilia from "./components/BuyBrasilia";
@@ -20,6 +21,7 @@ function App() {
   const [preco, setPreco] = useState(2);
   const [multiply, setMultiply] = useState(1);
   const [end, setEnd] = useState("");
+  const [photo, setPhoto] = useState(Collor)
 
   const [Rs, setRs] = useState(10);
   const [Cr$, setCr$] = useState(10);
@@ -240,6 +242,7 @@ function App() {
     if (joia >= 100000000) {
       setJoia(joia - 100000000);
       setEnd("Você Comprou Brasília, Parabéns!!!");
+      setPhoto(Ramon);
     }
   }
 
@@ -326,7 +329,7 @@ function App() {
         </button>
         Brazil Edition
       </h1>
-      <img src={Collor} alt="Collor" />
+      <img src={photo} alt="Collor" />
       <h1>{end}</h1>
       <section>
         <strong>
